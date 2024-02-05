@@ -12,7 +12,6 @@ try
     foreach ( var artista in listaArtistas)
     {
         Console.WriteLine( artista );
-        ; ;
     }
 }
 catch(Exception ex)
