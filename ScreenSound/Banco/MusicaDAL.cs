@@ -32,5 +32,16 @@ namespace ScreenSound.Banco
             _context.Musicas.Update(musica);
             _context.SaveChanges();
         }
+
+        public void Deletar(Musica musica) 
+        {
+            _context.Musicas.Remove(musica);
+            _context.SaveChanges();
+        }
+
+        public Musica? RecuperarPeloNome(string nome)
+        {
+            return _context.Musicas.FirstOrDefault(a => a.Equals(nome));
+        }
     }
 }
