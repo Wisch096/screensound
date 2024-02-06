@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ScreenSound.Banco
 {
-    internal abstract class DAL<T> where T : class
+    internal class DAL<T> where T : class
     {
         protected readonly ScreenSoundContext _context;
 
@@ -38,6 +38,11 @@ namespace ScreenSound.Banco
         {
             _context.Set<T>().Remove(objeto);
             _context.SaveChanges();
+        }
+
+        public T? RecuperarPor(Func<T, bool> condicao)
+        {
+            return _context.Set<T>().FirstOrDefault(condicao);
         }
 
     }
